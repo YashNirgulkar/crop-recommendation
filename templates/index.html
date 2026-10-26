@@ -1,0 +1,1134 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AgroAI • Planet-Friendly Gardening & AI Crop Recommendation Platform</title>
+    <meta name="description" content="AI-Powered Precision Agriculture, Ensemble Machine Learning Crop Recommendation, Soil Diagnostics & Conversational RAG Document Intelligence.">
+    
+    <!-- Google Fonts: Outfit & Plus Jakarta Sans -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Chart.js for Multivariate & Benchmark Visualizations -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- Custom Theme Stylesheet -->
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+
+    <!-- ===================================================================
+         TOP NAVIGATION BAR
+    ==================================================================== -->
+    <header class="navbar" id="siteNavbar">
+        <div class="nav-container">
+            <!-- Brand Logo -->
+            <div class="brand-logo" onclick="switchTab('tab-home')">
+                <div class="logo-icon-wrap">
+                    <i data-lucide="sprout" class="logo-icon"></i>
+                </div>
+                <div class="brand-text">
+                    <span class="brand-title">Agro<span class="highlight">AI</span></span>
+                    <span class="brand-subtitle">Planet-Friendly Gardening & Farming</span>
+                </div>
+            </div>
+
+            <!-- Navigation Tabs -->
+            <nav class="nav-tabs" id="mainNavTabs">
+                <button class="nav-tab active" data-tab="tab-home">
+                    <i data-lucide="home"></i> <span>Home</span>
+                </button>
+                <button class="nav-tab" data-tab="tab-recommender">
+                    <i data-lucide="sparkles"></i> <span>AI Recommender</span>
+                </button>
+                <button class="nav-tab highlight-tab" data-tab="tab-rag">
+                    <i data-lucide="bot"></i> <span>RAG Document AI</span>
+                    <span class="tab-badge">New</span>
+                </button>
+                <button class="nav-tab" data-tab="tab-fertilizer">
+                    <i data-lucide="flask-conical"></i> <span>Fertilizer Doctor</span>
+                </button>
+                <button class="nav-tab" data-tab="tab-crops">
+                    <i data-lucide="book-open"></i> <span>Crop Catalog</span>
+                </button>
+                <button class="nav-tab" data-tab="tab-analytics">
+                    <i data-lucide="bar-chart-3"></i> <span>ML Analytics</span>
+                </button>
+                <button class="nav-tab" data-tab="tab-batch">
+                    <i data-lucide="upload-cloud"></i> <span>Batch CSV</span>
+                </button>
+                <button class="nav-tab" data-tab="tab-viva">
+                    <i data-lucide="graduation-cap"></i> <span>Viva & Docs</span>
+                </button>
+            </nav>
+
+            <!-- Actions & Status Badges -->
+            <div class="nav-actions">
+                <div class="accuracy-badge" title="Trained on 2200 Agricultural Benchmark Samples">
+                    <span class="pulse-dot"></span>
+                    <span>RF: <strong>99.55% Acc</strong></span>
+                </div>
+                <button class="theme-toggle-btn" id="themeToggleBtn" aria-label="Toggle Dark/Light Theme" title="Toggle Theme">
+                    <i data-lucide="sun" class="sun-icon"></i>
+                    <i data-lucide="moon" class="moon-icon"></i>
+                </button>
+                <button class="btn-primary-sm get-quote-btn" onclick="switchTab('tab-rag')">
+                    <i data-lucide="message-square"></i> <span>Ask AI Agent</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- ===================================================================
+         HERO SECTION (Matching Reference Design with Scalloped Curve)
+    ==================================================================== -->
+    <section class="hero-section" id="heroSection">
+        <div class="hero-overlay"></div>
+        <div class="hero-container">
+            <div class="hero-badge">
+                <i data-lucide="flower-2"></i>
+                <span>Beautiful Gardening & Sustainable Smart Agriculture</span>
+            </div>
+            <h1 class="hero-main-title">
+                Planet - Friendly<br><span class="hero-accent">Gardening & AI Farming</span>
+            </h1>
+            <p class="hero-description">
+                Empowering farmers, horticulturists, and gardeners with precision machine learning recommendations, real-time agro-climatic forecasting, and conversational RAG document intelligence.
+            </p>
+            <div class="hero-cta-group">
+                <button class="btn-hero-primary" onclick="switchTab('tab-recommender')">
+                    <i data-lucide="sparkles"></i> <span>Explore AI Tools</span>
+                </button>
+                <button class="btn-hero-outline" onclick="switchTab('tab-rag')">
+                    <i data-lucide="bot"></i> <span>RAG Document Assistant</span>
+                </button>
+                <button class="btn-hero-ghost" onclick="switchTab('tab-fertilizer')">
+                    <i data-lucide="flask-conical"></i> <span>Soil Doctor</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Scalloped Organic Cloud / Wave Bottom Divider -->
+        <div class="scalloped-divider">
+            <svg viewBox="0 0 1440 120" fill="none" preserveAspectRatio="none">
+                <path d="M0,32 C120,75 240,80 360,48 C480,16 600,10 720,42 C840,74 960,82 1080,48 C1200,14 1320,20 1440,52 L1440,120 L0,120 Z" fill="var(--bg-main)"></path>
+            </svg>
+        </div>
+    </section>
+
+    <!-- Main App Layout -->
+    <main class="main-layout">
+
+        <!-- ===================================================================
+             TAB 0: HOME / SHOWCASE (Matching Arched Cards & Services in Image)
+        ==================================================================== -->
+        <section id="tab-home" class="tab-content active">
+            
+            <!-- ABOUT GARDENING & SHOWCASE SECTION -->
+            <div class="about-gardening-section">
+                <div class="about-grid">
+                    <!-- Left Column: 3 Arched Collage Photo Cards with Rotating Badge -->
+                    <div class="arched-gallery-wrap">
+                        <div class="arched-card card-tall">
+                            <img src="https://images.unsplash.com/photo-1592417817098-8f3d6eb22645?auto=format&fit=crop&w=600&q=80" alt="Farmer examining crops in greenhouse" loading="lazy">
+                        </div>
+                        <div class="arched-card card-mid">
+                            <img src="https://images.unsplash.com/photo-1530836369250-ef72a3f5cda8?auto=format&fit=crop&w=600&q=80" alt="Gardener holding healthy green plant sprout" loading="lazy">
+                        </div>
+                        <div class="arched-card card-small">
+                            <img src="https://images.unsplash.com/photo-1589923188900-85dae523342b?auto=format&fit=crop&w=600&q=80" alt="Hydroponics and modern nursery" loading="lazy">
+                        </div>
+
+                        <!-- Circular Floating Stamp Badge -->
+                        <div class="circular-stamp-badge">
+                            <div class="stamp-inner">
+                                <i data-lucide="sprout"></i>
+                                <span>SMART AGRO • AI GARDENING •</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right Column: Content & Checkpoints -->
+                    <div class="about-text-wrap">
+                        <div class="section-tag-pill">
+                            <i data-lucide="leaf"></i> About AgroAI
+                        </div>
+                        <h2 class="about-title">
+                            We'll Help You To Create Your Dream Garden & Maximize Crop Harvest
+                        </h2>
+                        <p class="about-lead">
+                            Backed by decades of agronomy research and advanced ensemble machine learning, our platform delivers scientific, soil-specific crop matching, precision fertilizer prescriptions, and RAG document intelligence that combine sustainability, bio-resilience, and peak yields.
+                        </p>
+
+                        <!-- 2-Column Green Checkpoint Badges -->
+                        <div class="features-checklist-grid">
+                            <div class="feature-item-pill">
+                                <span class="bullet-arrow">»</span>
+                                <div>
+                                    <strong>Soil Chemical Diagnostics</strong>
+                                    <span>NPK & pH deficit accounting</span>
+                                </div>
+                            </div>
+                            <div class="feature-item-pill">
+                                <span class="bullet-arrow">»</span>
+                                <div>
+                                    <strong>RAG Document Assistant</strong>
+                                    <span>Conversational PDF manual Q&A</span>
+                                </div>
+                            </div>
+                            <div class="feature-item-pill">
+                                <span class="bullet-arrow">»</span>
+                                <div>
+                                    <strong>Real-Time Weather Sync</strong>
+                                    <span>Automated Open-Meteo telemetry</span>
+                                </div>
+                            </div>
+                            <div class="feature-item-pill">
+                                <span class="bullet-arrow">»</span>
+                                <div>
+                                    <strong>Fertilizer Doctor</strong>
+                                    <span>Urea, DAP & MOP dosages/acre</span>
+                                </div>
+                            </div>
+                            <div class="feature-item-pill">
+                                <span class="bullet-arrow">»</span>
+                                <div>
+                                    <strong>22-Crop Encyclopedia</strong>
+                                    <span>Botanical & agronomy guidelines</span>
+                                </div>
+                            </div>
+                            <div class="feature-item-pill">
+                                <span class="bullet-arrow">»</span>
+                                <div>
+                                    <strong>Batch Soil Prediction</strong>
+                                    <span>Bulk CSV testing for large acreage</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="about-cta-row">
+                            <button class="btn-primary" onclick="switchTab('tab-recommender')">
+                                <i data-lucide="sparkles"></i> <span>Launch Crop Recommender</span>
+                            </button>
+                            <button class="btn-secondary" onclick="switchTab('tab-rag')">
+                                <i data-lucide="file-text"></i> <span>Chat with Agro Docs</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- "THE BEST CHOICE FOR YOUR BUSINESS" SERVICES CARDS SECTION -->
+            <div class="services-banner-section">
+                <div class="section-header-center">
+                    <div class="section-tag-pill light-pill">
+                        <i data-lucide="sparkles"></i> Core Capabilities
+                    </div>
+                    <h2 class="services-main-heading">The Best Choice For Sustainable Farming & Gardening</h2>
+                    <p class="services-sub-heading">Intelligent agricultural tools engineered for farmers, research scholars, and home garden enthusiasts.</p>
+                </div>
+
+                <div class="services-card-grid">
+                    <!-- Service 1 -->
+                    <div class="service-card" onclick="switchTab('tab-recommender')">
+                        <div class="service-icon-bubble">
+                            <i data-lucide="sprout"></i>
+                        </div>
+                        <h3 class="service-title">AI Crop Recommender</h3>
+                        <p class="service-desc">
+                            Ensemble Random Forest classifier predicting the ideal crop species based on NPK, pH, and microclimate with 99.55% accuracy.
+                        </p>
+                        <div class="service-link">
+                            <span>Open Recommender</span> <i data-lucide="arrow-right"></i>
+                        </div>
+                    </div>
+
+                    <!-- Service 2 -->
+                    <div class="service-card highlight-service" onclick="switchTab('tab-rag')">
+                        <div class="service-icon-bubble green-bubble">
+                            <i data-lucide="bot"></i>
+                        </div>
+                        <div class="service-tag-badge">AI Powered</div>
+                        <h3 class="service-title">RAG Agri-Doc Assistant</h3>
+                        <p class="service-desc">
+                            Upload agricultural PDF research papers, manuals, or use the preloaded handbook to chat with context-aware AI.
+                        </p>
+                        <div class="service-link">
+                            <span>Chat with Documents</span> <i data-lucide="arrow-right"></i>
+                        </div>
+                    </div>
+
+                    <!-- Service 3 -->
+                    <div class="service-card" onclick="switchTab('tab-fertilizer')">
+                        <div class="service-icon-bubble">
+                            <i data-lucide="flask-conical"></i>
+                        </div>
+                        <h3 class="service-title">Fertilizer Doctor</h3>
+                        <p class="service-desc">
+                            Automated nutrient deficit accounting and precise commercial fertilizer dosage prescriptions (Urea, DAP, MOP) per acre.
+                        </p>
+                        <div class="service-link">
+                            <span>Diagnose Soil</span> <i data-lucide="arrow-right"></i>
+                        </div>
+                    </div>
+
+                    <!-- Service 4 -->
+                    <div class="service-card" onclick="switchTab('tab-analytics')">
+                        <div class="service-icon-bubble">
+                            <i data-lucide="bar-chart-2"></i>
+                        </div>
+                        <h3 class="service-title">ML Benchmarks & Analytics</h3>
+                        <p class="service-desc">
+                            Comparative evaluation across 7 ML classification models, Gini feature importance ranking, and cross-validation metrics.
+                        </p>
+                        <div class="service-link">
+                            <span>View Model Metrics</span> <i data-lucide="arrow-right"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+        <!-- ===================================================================
+             TAB 1: AI CROP RECOMMENDER
+        ==================================================================== -->
+        <section id="tab-recommender" class="tab-content">
+            <!-- Toolbar for Live Weather & Presets -->
+            <div class="sub-hero-bar">
+                <div class="sub-hero-text">
+                    <h2><i data-lucide="sparkles"></i> Precision Crop Recommendation Engine</h2>
+                    <p>Enter soil chemical readings and weather values, or load live city telemetry to predict optimal crops.</p>
+                </div>
+
+                <div class="quick-tools-bar">
+                    <div class="tool-group weather-search-wrap">
+                        <i data-lucide="map-pin" class="input-icon"></i>
+                        <input type="text" id="weatherCityInput" placeholder="Enter city (e.g. Ludhiana, Nagpur, Shimla, Pune...)" class="tool-input">
+                        <button id="fetchWeatherBtn" class="btn-secondary" title="Fetch Live Weather">
+                            <i data-lucide="cloud-sun"></i> <span>Fetch Weather</span>
+                        </button>
+                        <button id="autoLocateBtn" class="btn-icon" title="Auto-detect location weather">
+                            <i data-lucide="crosshair"></i>
+                        </button>
+                    </div>
+
+                    <div class="tool-group preset-select-wrap">
+                        <label for="regionalPresetSelect" class="tool-label"><i data-lucide="layers"></i> Regional Presets:</label>
+                        <select id="regionalPresetSelect" class="tool-select">
+                            <option value="">-- Select Agro Preset --</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Input Form & Results Showcase Grid -->
+            <div class="grid-2col recommender-grid">
+                <!-- Parameters Studio Card -->
+                <div class="card glass-card input-studio">
+                    <div class="card-header">
+                        <div class="card-title-group">
+                            <div class="icon-bubble green"><i data-lucide="sliders"></i></div>
+                            <div>
+                                <h3 class="card-title">Soil & Environmental Parameters</h3>
+                                <p class="card-desc">Adjust chemical soil values & climatic factors</p>
+                            </div>
+                        </div>
+                        <button id="resetParamsBtn" class="btn-text-sm"><i data-lucide="rotate-ccw"></i> Reset</button>
+                    </div>
+
+                    <form id="cropPredictForm" class="parameter-form">
+                        <!-- Soil Nutrients Section -->
+                        <div class="form-section-title">
+                            <i data-lucide="test-tube-2"></i> Soil Macronutrients (NPK in kg/ha)
+                        </div>
+
+                        <div class="param-row">
+                            <div class="param-header">
+                                <label for="inputN"><span class="nutrient-tag n-tag">N</span> Nitrogen (kg/ha)</label>
+                                <span class="range-badge" id="badgeN">Medium</span>
+                            </div>
+                            <div class="slider-input-combo">
+                                <input type="range" id="sliderN" min="0" max="140" value="90" class="custom-range" step="1">
+                                <input type="number" id="inputN" min="0" max="140" value="90" class="number-input">
+                            </div>
+                        </div>
+
+                        <div class="param-row">
+                            <div class="param-header">
+                                <label for="inputP"><span class="nutrient-tag p-tag">P</span> Phosphorus (kg/ha)</label>
+                                <span class="range-badge" id="badgeP">Medium</span>
+                            </div>
+                            <div class="slider-input-combo">
+                                <input type="range" id="sliderP" min="5" max="145" value="42" class="custom-range" step="1">
+                                <input type="number" id="inputP" min="5" max="145" value="42" class="number-input">
+                            </div>
+                        </div>
+
+                        <div class="param-row">
+                            <div class="param-header">
+                                <label for="inputK"><span class="nutrient-tag k-tag">K</span> Potassium (kg/ha)</label>
+                                <span class="range-badge" id="badgeK">Medium</span>
+                            </div>
+                            <div class="slider-input-combo">
+                                <input type="range" id="sliderK" min="5" max="205" value="43" class="custom-range" step="1">
+                                <input type="number" id="inputK" min="5" max="205" value="43" class="number-input">
+                            </div>
+                        </div>
+
+                        <div class="param-row">
+                            <div class="param-header">
+                                <label for="inputPH"><span class="nutrient-tag ph-tag">pH</span> Soil pH Scale (0 - 14)</label>
+                                <span class="range-badge" id="badgePH">Neutral</span>
+                            </div>
+                            <div class="slider-input-combo">
+                                <input type="range" id="sliderPH" min="3.5" max="9.9" value="6.5" step="0.1" class="custom-range">
+                                <input type="number" id="inputPH" min="3.5" max="9.9" value="6.5" step="0.1" class="number-input">
+                            </div>
+                        </div>
+
+                        <!-- Environmental Section -->
+                        <div class="form-section-title">
+                            <i data-lucide="cloud-rain"></i> Environmental & Weather Conditions
+                        </div>
+
+                        <div class="param-row">
+                            <div class="param-header">
+                                <label for="inputTemp"><i data-lucide="thermometer"></i> Temperature (°C)</label>
+                                <span class="range-badge" id="badgeTemp">Warm</span>
+                            </div>
+                            <div class="slider-input-combo">
+                                <input type="range" id="sliderTemp" min="8" max="45" value="23.5" step="0.5" class="custom-range">
+                                <input type="number" id="inputTemp" min="8" max="45" value="23.5" step="0.5" class="number-input">
+                            </div>
+                        </div>
+
+                        <div class="param-row">
+                            <div class="param-header">
+                                <label for="inputHumidity"><i data-lucide="droplets"></i> Relative Humidity (%)</label>
+                                <span class="range-badge" id="badgeHumidity">Humid</span>
+                            </div>
+                            <div class="slider-input-combo">
+                                <input type="range" id="sliderHumidity" min="14" max="100" value="82.0" step="1" class="custom-range">
+                                <input type="number" id="inputHumidity" min="14" max="100" value="82.0" step="1" class="number-input">
+                            </div>
+                        </div>
+
+                        <div class="param-row">
+                            <div class="param-header">
+                                <label for="inputRainfall"><i data-lucide="cloud-drizzle"></i> Annual Rainfall Index (mm)</label>
+                                <span class="range-badge" id="badgeRainfall">High</span>
+                            </div>
+                            <div class="slider-input-combo">
+                                <input type="range" id="sliderRainfall" min="20" max="300" value="202.0" step="1" class="custom-range">
+                                <input type="number" id="inputRainfall" min="20" max="300" value="202.0" step="1" class="number-input">
+                            </div>
+                        </div>
+
+                        <button type="submit" id="predictSubmitBtn" class="btn-primary glow-btn">
+                            <i data-lucide="sparkles"></i>
+                            <span>Predict Optimal Crop Now</span>
+                        </button>
+                    </form>
+                </div>
+
+                <!-- Prediction Results Panel -->
+                <div class="results-showcase" id="resultsContainer">
+                    <!-- Empty Initial State Placeholder -->
+                    <div class="card glass-card empty-results-state" id="emptyStateCard">
+                        <div class="empty-state-icon">🌾</div>
+                        <h3>Ready for Agricultural Analysis</h3>
+                        <p>Adjust soil nutrients and weather values on the left, or pick a 1-click regional preset, then click <strong>"Predict Optimal Crop Now"</strong> to generate AI recommendations and agronomic advisory.</p>
+                        <div class="quick-chips">
+                            <span class="chip" onclick="applyPreset('punjab_plain')">⚡ Punjab Paddy</span>
+                            <span class="chip" onclick="applyPreset('maharashtra_cotton')">⚡ Black Soil Cotton</span>
+                            <span class="chip" onclick="applyPreset('himachal_orchard')">⚡ Shimla Apple</span>
+                            <span class="chip" onclick="applyPreset('karnataka_coffee')">⚡ Coorg Coffee</span>
+                        </div>
+                    </div>
+
+                    <!-- Dynamic Results Output -->
+                    <div class="dynamic-results" id="dynamicResultsPanel" style="display: none;">
+                        
+                        <!-- Primary Recommended Crop Card -->
+                        <div class="card primary-crop-card">
+                            <div class="card-glow-bg"></div>
+                            <div class="primary-crop-header">
+                                <div class="crop-avatar-wrap">
+                                    <span class="crop-avatar-icon" id="resPrimaryIcon">🌾</span>
+                                </div>
+                                <div class="primary-crop-titles">
+                                    <div class="match-ribbon"><i data-lucide="check-circle-2"></i> #1 AI Recommended Crop</div>
+                                    <h2 class="primary-crop-name" id="resPrimaryName">Rice (Paddy)</h2>
+                                    <p class="primary-scientific" id="resPrimaryScientific">Oryza sativa • Cereal</p>
+                                </div>
+                                <div class="confidence-circle" id="resConfidenceWrap">
+                                    <div class="conf-percent" id="resConfidenceVal">99.2%</div>
+                                    <div class="conf-label">Confidence</div>
+                                </div>
+                            </div>
+
+                            <!-- Agronomy Quick Badges -->
+                            <div class="agronomy-badge-grid">
+                                <div class="agro-badge-item">
+                                    <i data-lucide="calendar"></i>
+                                    <div>
+                                        <div class="badge-label">Duration</div>
+                                        <div class="badge-val" id="resDuration">100-150 days</div>
+                                    </div>
+                                </div>
+                                <div class="agro-badge-item">
+                                    <i data-lucide="sun"></i>
+                                    <div>
+                                        <div class="badge-label">Season</div>
+                                        <div class="badge-val" id="resSeason">Kharif (Monsoon)</div>
+                                    </div>
+                                </div>
+                                <div class="agro-badge-item">
+                                    <i data-lucide="layers"></i>
+                                    <div>
+                                        <div class="badge-label">Soil Type</div>
+                                        <div class="badge-val" id="resSoilType">Clayey / Alluvial</div>
+                                    </div>
+                                </div>
+                                <div class="agro-badge-item">
+                                    <i data-lucide="droplet"></i>
+                                    <div>
+                                        <div class="badge-label">Water Need</div>
+                                        <div class="badge-val" id="resWater">High (1200-2000mm)</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Radar Match Chart & Alternative Crops -->
+                        <div class="grid-2col-nested">
+                            <div class="card glass-card radar-card">
+                                <div class="card-header-sm">
+                                    <h4><i data-lucide="radar"></i> Soil vs Ideal Benchmark Match</h4>
+                                    <span class="radar-tag">Multivariate Analysis</span>
+                                </div>
+                                <div class="chart-box">
+                                    <canvas id="soilRadarChart"></canvas>
+                                </div>
+                            </div>
+
+                            <div class="card glass-card alternatives-card">
+                                <div class="card-header-sm">
+                                    <h4><i data-lucide="git-branch"></i> Alternative Candidates</h4>
+                                    <span class="radar-tag">Next Best Fits</span>
+                                </div>
+                                <div class="alternatives-list" id="resAlternativesList">
+                                    <!-- Dynamic Alternatives -->
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Agronomy Best Practices & Cultivation Guide -->
+                        <div class="card glass-card cultivation-guide-card">
+                            <div class="card-header-sm">
+                                <h4><i data-lucide="book-open-check"></i> Agronomy Action Plan & Best Practices</h4>
+                            </div>
+                            <div class="guide-content">
+                                <div class="economic-callout">
+                                    <strong><i data-lucide="trending-up"></i> Market Potential: </strong>
+                                    <span id="resEconomicVal">High market liquidity.</span>
+                                </div>
+                                <ul class="best-practice-list" id="resBestPracticesList">
+                                    <!-- Populated via JS -->
+                                </ul>
+                                <div class="fertilizer-mini-summary" id="resFertilizerMini">
+                                    <strong><i data-lucide="flask-round"></i> Fertilizer Strategy: </strong>
+                                    <span id="resFertilizerGuideText">Basal dose of NPK + 2 split top dressings.</span>
+                                </div>
+                            </div>
+                            <div class="card-footer-action">
+                                <button class="btn-outline-sm" id="jumpToFertilizerDoctorBtn">
+                                    <i data-lucide="arrow-right"></i> Open Full Fertilizer & Soil Health Analysis
+                                </button>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===================================================================
+             TAB 2: RAG AGRO-DOCUMENT INTELLIGENCE ASSISTANT (rag_agent.py INTEGRATION)
+        ==================================================================== -->
+        <section id="tab-rag" class="tab-content">
+            <div class="section-title-wrap">
+                <div class="badge-pill highlight-pill"><i data-lucide="bot"></i> Retrieval-Augmented Generation (RAG)</div>
+                <h2>Conversational Agricultural Document Intelligence</h2>
+                <p>Upload agricultural research papers, soil surveys, crop handbooks, or use our preloaded agronomy knowledge base to ask questions and receive cited scientific answers.</p>
+            </div>
+
+            <div class="rag-workspace-grid">
+                <!-- Left Column: Document Repository & Upload Studio -->
+                <div class="card glass-card doc-manager-card">
+                    <div class="card-header">
+                        <div class="card-title-group">
+                            <div class="icon-bubble green"><i data-lucide="file-up"></i></div>
+                            <div>
+                                <h3 class="card-title">Document Knowledge Base</h3>
+                                <p class="card-desc">PDF Research Papers & Crop Guides</p>
+                            </div>
+                        </div>
+                        <button class="btn-icon" id="ragConfigKeysBtn" title="Configure Groq / OpenAI API Keys">
+                            <i data-lucide="settings"></i>
+                        </button>
+                    </div>
+
+                    <!-- PDF Drag & Drop Upload Zone -->
+                    <div class="rag-drop-zone" id="ragDropZone">
+                        <i data-lucide="file-text" class="rag-upload-icon"></i>
+                        <h4>Upload Agricultural PDF Documents</h4>
+                        <p>Drag & drop PDF files here, or click to browse</p>
+                        <input type="file" id="ragPdfFileInput" accept=".pdf" multiple style="display: none;">
+                        <button class="btn-primary-sm" onclick="document.getElementById('ragPdfFileInput').click()">
+                            <i data-lucide="folder-plus"></i> Browse PDFs
+                        </button>
+                    </div>
+
+                    <!-- Index Status Bar -->
+                    <div class="rag-status-bar" id="ragStatusBar">
+                        <div class="status-indicator-dot" id="ragStatusDot"></div>
+                        <span id="ragStatusText">Loading knowledge repository...</span>
+                    </div>
+
+                    <!-- Indexed Files List -->
+                    <div class="indexed-files-header">
+                        <h4><i data-lucide="folder"></i> Indexed PDF Files (<span id="ragDocCount">0</span>)</h4>
+                        <button class="btn-text-sm text-danger" id="ragClearDocsBtn" title="Clear all documents">
+                            <i data-lucide="trash-2"></i> Clear
+                        </button>
+                    </div>
+                    <div class="indexed-files-list" id="ragIndexedFilesList">
+                        <!-- Populated dynamically via JS -->
+                    </div>
+
+                    <!-- Quick Load Sample Handbook Button -->
+                    <div class="load-sample-handbook-row">
+                        <button class="btn-outline-sm btn-full" id="loadSampleHandbookBtn">
+                            <i data-lucide="book-check"></i> Load Preloaded Agronomy Handbook
+                        </button>
+                    </div>
+
+                    <!-- API Status Card -->
+                    <div class="api-status-badge-card" id="apiStatusBadgeCard">
+                        <div class="api-key-status-item">
+                            <span class="key-label">Groq LLM:</span>
+                            <span class="key-val" id="groqStatusBadge">Not Configured</span>
+                        </div>
+                        <div class="api-key-status-item">
+                            <span class="key-label">OpenAI Embeddings:</span>
+                            <span class="key-val" id="openaiStatusBadge">Local Semantic BM25</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Column: Interactive Chat Interface -->
+                <div class="card glass-card rag-chat-card">
+                    <div class="chat-header">
+                        <div class="chat-header-info">
+                            <div class="avatar-bot">
+                                <i data-lucide="sprout"></i>
+                            </div>
+                            <div>
+                                <h3 class="chat-bot-name">AgroAI Document Assistant</h3>
+                                <p class="chat-bot-status" id="chatEngineLabel">Ready • RAG Knowledge Retrieval Active</p>
+                            </div>
+                        </div>
+                        <button class="btn-secondary-sm" id="clearChatHistoryBtn" title="Clear Chat History">
+                            <i data-lucide="rotate-ccw"></i> Clear Chat
+                        </button>
+                    </div>
+
+                    <!-- Prompt Suggestion Chips -->
+                    <div class="suggestion-chips-bar">
+                        <span class="chip-label">Suggestions:</span>
+                        <button class="sugg-chip" onclick="askSuggestedPrompt('What is the optimal NPK fertilizer schedule for Rice and Nitrogen application?')">
+                            🌾 Rice NPK Schedule
+                        </button>
+                        <button class="sugg-chip" onclick="askSuggestedPrompt('How to treat soil pH under 6.0 and correct soil acidity?')">
+                            🧪 Soil pH Acidity Remedy
+                        </button>
+                        <button class="sugg-chip" onclick="askSuggestedPrompt('What are organic IPM methods and Neem oil dosages for pests?')">
+                            🌿 Organic Neem IPM
+                        </button>
+                        <button class="sugg-chip" onclick="askSuggestedPrompt('What are the critical irrigation stages for Wheat and Maize?')">
+                            💧 Wheat & Maize Irrigation
+                        </button>
+                    </div>
+
+                    <!-- Chat Messages Stream -->
+                    <div class="chat-messages-container" id="chatMessagesContainer">
+                        <!-- Welcome message -->
+                        <div class="chat-message msg-bot">
+                            <div class="msg-avatar"><i data-lucide="sprout"></i></div>
+                            <div class="msg-bubble">
+                                <p><strong>Hello Farmer & Researcher! 🌱</strong></p>
+                                <p>I am your Agricultural Document AI Agent. Ask me anything regarding soil nutrient management, NPK formulation, irrigation protocols, or pest control derived directly from your uploaded PDF agronomy manuals.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Chat Input Bar -->
+                    <form id="ragChatForm" class="chat-input-bar">
+                        <input type="text" id="ragChatInput" placeholder="Ask anything about your agricultural documents or crop guidelines..." autocomplete="off">
+                        <button type="submit" id="ragSendBtn" class="btn-send">
+                            <i data-lucide="send"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===================================================================
+             TAB 3: FERTILIZER & SOIL DOCTOR
+        ==================================================================== -->
+        <section id="tab-fertilizer" class="tab-content">
+            <div class="section-title-wrap">
+                <div class="badge-pill"><i data-lucide="flask-conical"></i> Precision Agronomy Advisory</div>
+                <h2>Soil Doctor & Fertilizer Formulation Calculator</h2>
+                <p>Calculates nutrient deficits against standard agricultural benchmarks and prescribes exact dosages of Urea, DAP, MOP, and pH corrective amendments.</p>
+            </div>
+
+            <div class="grid-2col fertilizer-layout">
+                <div class="card glass-card">
+                    <div class="card-header">
+                        <div class="card-title-group">
+                            <div class="icon-bubble amber"><i data-lucide="calculator"></i></div>
+                            <div>
+                                <h3 class="card-title">Soil Nutrient Diagnosis</h3>
+                                <p class="card-desc">Select intended crop and your soil test readings</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <form id="fertilizerForm" class="parameter-form">
+                        <div class="form-group">
+                            <label for="fertTargetCrop" class="input-label"><i data-lucide="sprout"></i> Target Crop for Cultivation:</label>
+                            <select id="fertTargetCrop" class="tool-select select-full">
+                                <!-- Populated dynamically from 22 crops -->
+                            </select>
+                        </div>
+
+                        <div class="grid-2col-inputs">
+                            <div class="form-group">
+                                <label for="fertN" class="input-label"><span class="nutrient-tag n-tag">N</span> Nitrogen (kg/ha):</label>
+                                <input type="number" id="fertN" value="50" min="0" max="250" class="number-input input-wide">
+                            </div>
+                            <div class="form-group">
+                                <label for="fertP" class="input-label"><span class="nutrient-tag p-tag">P</span> Phosphorus (kg/ha):</label>
+                                <input type="number" id="fertP" value="30" min="0" max="200" class="number-input input-wide">
+                            </div>
+                            <div class="form-group">
+                                <label for="fertK" class="input-label"><span class="nutrient-tag k-tag">K</span> Potassium (kg/ha):</label>
+                                <input type="number" id="fertK" value="35" min="0" max="250" class="number-input input-wide">
+                            </div>
+                            <div class="form-group">
+                                <label for="fertPH" class="input-label"><span class="nutrient-tag ph-tag">pH</span> Soil pH (0-14):</label>
+                                <input type="number" id="fertPH" value="6.2" step="0.1" min="3" max="10" class="number-input input-wide">
+                            </div>
+                        </div>
+
+                        <button type="submit" class="btn-primary">
+                            <i data-lucide="stethoscope"></i>
+                            <span>Diagnose Soil & Calculate Fertilizer Dose</span>
+                        </button>
+                    </form>
+                </div>
+
+                <!-- Fertilizer Prescription Results -->
+                <div class="card glass-card" id="fertResultsCard">
+                    <div class="card-header">
+                        <div class="card-title-group">
+                            <div class="icon-bubble green"><i data-lucide="clipboard-check"></i></div>
+                            <div>
+                                <h3 class="card-title">Agronomy Prescription Report</h3>
+                                <p class="card-desc">Actionable treatment plan per acre of land</p>
+                            </div>
+                        </div>
+                        <div class="health-index-badge" id="fertHealthScoreWrap">
+                            <span>Soil Score: <strong id="fertHealthScore">85%</strong></span>
+                        </div>
+                    </div>
+
+                    <div class="nutrient-deficit-grid" id="fertNutrientGrid">
+                        <!-- Populated dynamically via JS -->
+                    </div>
+
+                    <h4 class="sub-header-text"><i data-lucide="package-check"></i> Recommended Fertilizer Dosing (per Acre):</h4>
+                    <div class="prescriptions-list" id="fertPrescriptionsList">
+                        <!-- Populated dynamically via JS -->
+                    </div>
+
+                    <div class="ph-treatment-box" id="phTreatmentBox">
+                        <i data-lucide="info"></i>
+                        <span id="phRemedyText">Soil pH is in the optimal range.</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===================================================================
+             TAB 4: CROP ENCYCLOPEDIA (22 CROPS CATALOG)
+        ==================================================================== -->
+        <section id="tab-crops" class="tab-content">
+            <div class="section-title-wrap">
+                <div class="badge-pill"><i data-lucide="book-open"></i> Crop Knowledge Repository</div>
+                <h2>Agricultural Encyclopedia (22 Supported Crops)</h2>
+                <p>Explore botanical characteristics, climatic prerequisites, and agronomic guidelines for all supported crops.</p>
+            </div>
+
+            <!-- Search & Filters -->
+            <div class="catalog-filter-bar">
+                <div class="search-wrap">
+                    <i data-lucide="search"></i>
+                    <input type="text" id="cropSearchInput" placeholder="Search crops by name, category, or soil type..." class="catalog-search-input">
+                </div>
+                <div class="filter-pills" id="categoryFilterPills">
+                    <button class="filter-pill active" data-category="all">All Crops (22)</button>
+                    <button class="filter-pill" data-category="cereal">Cereals</button>
+                    <button class="filter-pill" data-category="pulse">Pulses</button>
+                    <button class="filter-pill" data-category="fruit">Fruits</button>
+                    <button class="filter-pill" data-category="fiber">Fiber / Cash</button>
+                    <button class="filter-pill" data-category="plantation">Plantation</button>
+                </div>
+            </div>
+
+            <!-- Crops Grid -->
+            <div class="crops-grid" id="cropsDirectoryGrid">
+                <!-- Populated dynamically via JS -->
+            </div>
+        </section>
+
+        <!-- ===================================================================
+             TAB 5: ML MODEL ANALYTICS & BENCHMARKING
+        ==================================================================== -->
+        <section id="tab-analytics" class="tab-content">
+            <div class="section-title-wrap">
+                <div class="badge-pill"><i data-lucide="activity"></i> Rigorous Machine Learning Evaluation</div>
+                <h2>Model Performance & Comparative Analytics</h2>
+                <p>Comprehensive evaluation of 7 supervised classification models trained on 2,200 Agricultural Benchmark Samples with 5-Fold Cross Validation.</p>
+            </div>
+
+            <!-- Summary Stats -->
+            <div class="stats-summary-grid">
+                <div class="stat-card">
+                    <div class="stat-icon-wrap green"><i data-lucide="award"></i></div>
+                    <div class="stat-info">
+                        <div class="stat-label">Top Model</div>
+                        <div class="stat-value" id="statTopModel">Random Forest</div>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon-wrap blue"><i data-lucide="check-circle"></i></div>
+                    <div class="stat-info">
+                        <div class="stat-label">Model Accuracy</div>
+                        <div class="stat-value" id="statTopAccuracy">99.55%</div>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon-wrap purple"><i data-lucide="database"></i></div>
+                    <div class="stat-info">
+                        <div class="stat-label">Dataset Samples</div>
+                        <div class="stat-value">2,200 Rows</div>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon-wrap amber"><i data-lucide="layers"></i></div>
+                    <div class="stat-info">
+                        <div class="stat-label">Crop Classes</div>
+                        <div class="stat-value">22 Unique</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid-2col analytics-grid">
+                <!-- Leaderboard Table -->
+                <div class="card glass-card">
+                    <div class="card-header">
+                        <div class="card-title-group">
+                            <div class="icon-bubble blue"><i data-lucide="table"></i></div>
+                            <div>
+                                <h3 class="card-title">Algorithm Benchmark Comparison</h3>
+                                <p class="card-desc">Performance across 7 ML classifiers</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="table-responsive">
+                        <table class="benchmark-table" id="modelsBenchmarkTable">
+                            <thead>
+                                <tr>
+                                    <th>Algorithm</th>
+                                    <th>Accuracy</th>
+                                    <th>Precision</th>
+                                    <th>Recall</th>
+                                    <th>F1-Score</th>
+                                    <th>CV Mean</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- Populated dynamically via JS -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Feature Importance Chart -->
+                <div class="card glass-card">
+                    <div class="card-header">
+                        <div class="card-title-group">
+                            <div class="icon-bubble purple"><i data-lucide="pie-chart"></i></div>
+                            <div>
+                                <h3 class="card-title">Feature Importance Ranking</h3>
+                                <p class="card-desc">Gini Impurity contribution (%)</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="chart-box-tall">
+                        <canvas id="featureImportanceChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===================================================================
+             TAB 6: BATCH SOIL PREDICTOR (CSV UPLOAD)
+        ==================================================================== -->
+        <section id="tab-batch" class="tab-content">
+            <div class="section-title-wrap">
+                <div class="badge-pill"><i data-lucide="upload-cloud"></i> Bulk Processing</div>
+                <h2>Batch Soil Sample Prediction</h2>
+                <p>Upload a CSV file containing multiple soil test records to generate bulk crop recommendations instantly.</p>
+            </div>
+
+            <div class="batch-upload-wrapper">
+                <div class="card glass-card upload-drop-zone" id="csvDropZone">
+                    <i data-lucide="file-spreadsheet" class="upload-icon"></i>
+                    <h3>Drag and drop your soil test CSV here</h3>
+                    <p>or click the button below to browse files from your computer</p>
+                    <input type="file" id="batchCsvFileInput" accept=".csv" style="display: none;">
+                    <div class="upload-btn-row">
+                        <button class="btn-primary" onclick="document.getElementById('batchCsvFileInput').click()">
+                            <i data-lucide="folder-open"></i> Browse CSV File
+                        </button>
+                        <a href="/api/download-sample-csv" class="btn-secondary" download>
+                            <i data-lucide="download"></i> Download Sample CSV
+                        </a>
+                    </div>
+                    <span class="file-format-note">Required columns: <code>N, P, K, temperature, humidity, ph, rainfall</code></span>
+                </div>
+
+                <div class="card glass-card batch-results-card" id="batchResultsCard" style="display: none;">
+                    <div class="card-header">
+                        <div class="card-title-group">
+                            <div class="icon-bubble green"><i data-lucide="check-check"></i></div>
+                            <div>
+                                <h3 class="card-title">Batch Prediction Results</h3>
+                                <p class="card-desc" id="batchCountText">Processed samples</p>
+                            </div>
+                        </div>
+                        <button class="btn-secondary" id="exportBatchCsvBtn">
+                            <i data-lucide="download"></i> Export CSV
+                        </button>
+                    </div>
+
+                    <div class="table-responsive">
+                        <table class="benchmark-table" id="batchResultsTable">
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>N</th>
+                                    <th>P</th>
+                                    <th>K</th>
+                                    <th>Temp (°C)</th>
+                                    <th>Humidity (%)</th>
+                                    <th>pH</th>
+                                    <th>Rainfall (mm)</th>
+                                    <th>Recommended Crop</th>
+                                    <th>Confidence</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- Populated dynamically via JS -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===================================================================
+             TAB 7: MINOR PROJECT DOCUMENTATION & VIVA PREP
+        ==================================================================== -->
+        <section id="tab-viva" class="tab-content">
+            <div class="section-title-wrap">
+                <div class="badge-pill"><i data-lucide="graduation-cap"></i> Academic Documentation</div>
+                <h2>Minor Project Architecture & Viva Q&A Guide</h2>
+                <p>Complete project synopsis, system architecture, and frequently asked Viva examination questions with answers.</p>
+            </div>
+
+            <div class="docs-container">
+                <div class="card glass-card doc-card">
+                    <div class="doc-header">
+                        <div class="doc-num">01</div>
+                        <h3>Project Abstract & Motivation</h3>
+                    </div>
+                    <p class="doc-text">
+                        Agriculture is the backbone of the economy, yet traditional crop selection often relies on subjective intuition or outdated seasonal patterns. <strong>AgroAI</strong> leverages ensemble supervised machine learning (Random Forest Classifier with 100 decision trees) trained on multi-attribute agricultural data to scientifically predict the most suitable crop with <strong>99.55% accuracy</strong>, accompanied by exact fertilizer dosage calculations, live meteorological synchronization, and RAG document intelligence.
+                    </p>
+                </div>
+
+                <div class="card glass-card doc-card">
+                    <div class="doc-header">
+                        <div class="doc-num">02</div>
+                        <h3>End-to-End System Architecture</h3>
+                    </div>
+                    <div class="architecture-diagram">
+                        <div class="arch-step">
+                            <div class="arch-step-icon"><i data-lucide="database"></i></div>
+                            <strong>1. Data Ingestion</strong>
+                            <span>2,200 Benchmark records across 22 crops</span>
+                        </div>
+                        <div class="arch-arrow"><i data-lucide="arrow-right"></i></div>
+                        <div class="arch-step">
+                            <div class="arch-step-icon"><i data-lucide="sliders"></i></div>
+                            <strong>2. Preprocessing</strong>
+                            <span>Scaling, encoding, stratified splitting</span>
+                        </div>
+                        <div class="arch-arrow"><i data-lucide="arrow-right"></i></div>
+                        <div class="arch-step">
+                            <div class="arch-step-icon"><i data-lucide="cpu"></i></div>
+                            <strong>3. Multi-Model ML</strong>
+                            <span>Random Forest, SVM, GB benchmark</span>
+                        </div>
+                        <div class="arch-arrow"><i data-lucide="arrow-right"></i></div>
+                        <div class="arch-step">
+                            <div class="arch-step-icon"><i data-lucide="bot"></i></div>
+                            <strong>4. RAG AI Agent</strong>
+                            <span>Document vector search & LangChain agent</span>
+                        </div>
+                        <div class="arch-arrow"><i data-lucide="arrow-right"></i></div>
+                        <div class="arch-step">
+                            <div class="arch-step-icon"><i data-lucide="monitor"></i></div>
+                            <strong>5. Modern UI</strong>
+                            <span>Planet-friendly aesthetic dashboard</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card glass-card doc-card">
+                    <div class="doc-header">
+                        <div class="doc-num">03</div>
+                        <h3>Top Viva Examination Questions & Answers</h3>
+                    </div>
+                    <div class="faq-accordion">
+                        <details class="faq-item" open>
+                            <summary class="faq-q">
+                                <strong>Q1: Why did you choose Random Forest over a single Decision Tree?</strong>
+                            </summary>
+                            <div class="faq-a">
+                                <strong>Answer:</strong> A single Decision Tree is prone to high variance and overfitting on non-linear soil-climate boundaries. Random Forest constructs an ensemble of 100 decorrelated decision trees using bootstrap aggregating (bagging) and random feature subspace selection, achieving <strong>99.55% test accuracy</strong>.
+                            </div>
+                        </details>
+
+                        <details class="faq-item">
+                            <summary class="faq-q">
+                                <strong>Q2: How does the RAG Document Assistant work?</strong>
+                            </summary>
+                            <div class="faq-a">
+                                <strong>Answer:</strong> The RAG (Retrieval-Augmented Generation) pipeline parses uploaded agricultural PDF research papers, splits them into semantic text chunks using `RecursiveCharacterTextSplitter`, indexes them in an in-memory vector store, and retrieves context to generate cited answers via Groq / OpenAI LLMs or the local agronomy inference engine.
+                            </div>
+                        </details>
+
+                        <details class="faq-item">
+                            <summary class="faq-q">
+                                <strong>Q3: How does the Fertilizer Doctor calculate dosages?</strong>
+                            </summary>
+                            <div class="faq-a">
+                                <strong>Answer:</strong> It calculates stoichiometric nutrient deficits ($\Delta N, \Delta P, \Delta K$) against optimal agronomy thresholds, converting deficits to commercial fertilizer weights (DAP $18\% N, 46\% P_2O_5$, Urea $46\% N$, MOP $60\% K_2O$) in kg/acre with split schedules.
+                            </div>
+                        </details>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ===================================================================
+         MODAL: RAG API KEYS CONFIGURATION
+    ==================================================================== -->
+    <div class="modal-backdrop" id="ragKeysModal" style="display: none;">
+        <div class="modal-card">
+            <div class="modal-header">
+                <div class="modal-title-group">
+                    <i data-lucide="key-round" class="text-primary"></i>
+                    <h3>Configure AI Model API Keys</h3>
+                </div>
+                <button class="modal-close-btn" id="closeRagModalBtn">&times;</button>
+            </div>
+            <div class="modal-body">
+                <p class="modal-desc">
+                    By default, AgroAI includes a built-in semantic agronomy engine that works without any keys. To enable high-speed cloud LLMs (Groq) or OpenAI embeddings, provide your API keys below (saved securely to <code>.env</code>):
+                </p>
+
+                <div class="form-group">
+                    <label for="modalGroqKey" class="input-label">Groq API Key (for ChatGroq LLM):</label>
+                    <input type="password" id="modalGroqKey" placeholder="gsk_..." class="tool-input input-wide">
+                    <span class="field-hint">Free key available at <a href="https://console.groq.com" target="_blank">console.groq.com</a></span>
+                </div>
+
+                <div class="form-group">
+                    <label for="modalOpenAIKey" class="input-label">OpenAI API Key (for Text Embeddings 3):</label>
+                    <input type="password" id="modalOpenAIKey" placeholder="sk-..." class="tool-input input-wide">
+                    <span class="field-hint">Key available at <a href="https://platform.openai.com" target="_blank">platform.openai.com</a></span>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn-secondary" id="cancelKeysBtn">Cancel</button>
+                <button class="btn-primary" id="saveKeysBtn"><i data-lucide="check"></i> Save & Re-index</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===================================================================
+         FLOATING AI CHATBOT DRAWER / WIDGET
+    ==================================================================== -->
+    <div class="floating-chat-trigger" id="floatingChatTrigger" title="Open AI Agro-Doc Assistant">
+        <i data-lucide="bot" class="trigger-icon"></i>
+        <span class="trigger-label">AI Assistant</span>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-left">
+                <span class="footer-logo"><i data-lucide="sprout"></i> AgroAI</span>
+                <span class="footer-desc">Planet-Friendly Gardening & Precision Agriculture • Minor Project</span>
+            </div>
+            <div class="footer-right">
+                <span>Precision Agronomy & RAG Intelligence</span>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Application Script -->
+    <script src="/static/js/app.js"></script>
+    <script>
+        // Initialize Lucide icons
+        if (window.lucide) {
+            lucide.createIcons();
+        }
+    </script>
+</body>
+</html>
