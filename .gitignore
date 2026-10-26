@@ -1,0 +1,12 @@
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.env
+.env.*
+!.env.example
+.vercel/
+.uv-cache/
+_uv/
+server.log
+server-error.log
